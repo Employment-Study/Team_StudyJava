@@ -59,11 +59,11 @@
 
 - [위키독스 - 점프 투 자바](https://wikidocs.net/book/31)
 
-[day01]: ./day01/src/
-[day02]: ./day02/src/
-[day03]: ./day03/src/
-[day04]: ./day04/src/
-[day05]: ./day05/src/
+[day01]: ./day01(강사님)/src/
+[day02]: ./day02(강사님)/src/
+[day03]: ./day03(강사님)/src/
+[day04]: ./day04(강사님)/src/
+[day05]: ./day05(강사님)/src/
 [day06]: ./day06(강사님)/src/
 [day07]: ./day07/src/
 [day08]: ./day08/src/
