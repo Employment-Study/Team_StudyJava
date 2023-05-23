@@ -64,7 +64,7 @@
 [day03]: ./day03/src/
 [day04]: ./day04/src/
 [day05]: ./day05/src/
-[day06]: ./day06/src/
+[day06]: ./day06(강사님)/src/
 [day07]: ./day07/src/
 [day08]: ./day08/src/
 [day09]: ./day09/src/
