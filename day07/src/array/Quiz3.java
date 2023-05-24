@@ -5,60 +5,61 @@ import java.util.Arrays;
 
 public class Quiz3 {
 	public static void main(String[] args) {
-			Random ran = new Random();
-			int size = 10;
-			int range = 100;
-			int[] arr = new int[size];
-			
-		for(int i =0;i < arr.length; i++) {
-			arr[i] = ran.nextInt(range); // 0 ~ 99사이의 임의의 수
-		}
-		// Arrays라는 유틸릴티 클래스를 import해서 배열의 내용을 문자열형태로 받아본다.
 		
+		Random ran = new Random();
+		int size = 10;
+		int range = 100;
+		int[] arr = new int[size];
+		
+		for(int i = 0; i < arr.length; i++) {
+			arr[i] = ran.nextInt(range);
+		}
 		System.out.println(arr);
 		System.out.println(Arrays.toString(arr));
 		
-		//1) arr의 값에서 홀수와 짝수가 각각 몇개인지 파악하여 출력하세요
-		int oddcnt=0, evencnt = 0;
-		for(int i=0;i<arr.length;i++) {
-			if(arr[i] % 2== 0) {
-				evencnt ++;
-			}else {
-				oddcnt++;
+		// 1) arr의 값에서 홀수와 짝수가 각각 몇개인지 파악하여 출력하세요
+		int oddCount = 0, evenCount = 0;
+		for(int i = 0; i < arr.length; i++) {
+			if(arr[i] % 2 == 0) {
+				evenCount++;
+			}
+			else {
+				oddCount++;
 			}
 		}
-		System.out.println("홀수의 갯수 : "+ oddcnt);
-		System.out.println("짝수의 갯수 : "+ evencnt);
-		
+		System.out.printf("1) 홀수의 개수 : %d, 짝수의 개수 : %d\n", oddCount, evenCount);
 		
 		// 2) oddArray와 evenArray를 생성하여 각각 홀수와 짝수를 담아서 출력하세요
-		int [] evenArray = new int[evencnt];
-		int [] oddArray = new int[oddcnt];
+		int[] oddArray = new int[oddCount];
+		int[] evenArray = new int[evenCount];
 		
-		int oddcnt1 = 0;
-		int evencnt1 = 0;
+		int oddIndex = 0, evenIndex = 0;
 		
-		for(int i=0;i<arr.length;i++) {
+		for(int i = 0; i < arr.length; i++) {
 			if(arr[i] % 2 == 0) {
-				evenArray[evencnt1] = arr[i];
-				evencnt1++;
-			}else {
-				oddArray[oddcnt1] = arr[i];
-				oddcnt1++;
+//				evenArray[evenArray.length - evenCount] = arr[i];
+//				evenCount--;
+				evenArray[evenIndex++] = arr[i];
+			}
+			else {
+//				oddArray[oddArray.length - oddCount] = arr[i];
+//				oddCount--;
+				oddArray[oddIndex++] = arr[i];
 			}
 		}
+		System.out.println(Arrays.toString(oddArray));
+		System.out.println(Arrays.toString(evenArray));
 		
-		System.out.println("evenArray : "+Arrays.toString(evenArray));
-		System.out.println("oddArray : "+Arrays.toString(oddArray));
-		
-		
-		// 3) arr의 총 합을 구하여 출력하세요
-		int total = 0;
-		for(int i =0 ;i < arr.length;i++) {
-			total += arr[i];
+		// 3) arr의 총합을 구하여 출력하세요
+		int sum = 0;
+		for(int num : arr) {
+			sum += num;
 		}
+		System.out.println("합계 : " + sum);
 		
-		System.out.println("total : "+total);
+		
+		
+		
 		
 	}
 }
