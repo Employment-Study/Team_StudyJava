@@ -13,7 +13,7 @@ public class Quiz2 {
 	}
 	
 	public static void main(String[] args) {
-		int size = 6;	// 그리는 한 변 사이즈
+		int size = 5;	// 그리는 한 변 사이즈
         int[][] arr = new int[size][size];
         
         int sign = 1; // 1부터 끝까지 증가하는 변수
