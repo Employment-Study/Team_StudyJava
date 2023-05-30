@@ -38,66 +38,44 @@ public class Snail {
 			arr[x][j] = num++;
 			y = j;
 		}
-		show(arr);
 
 		for (int i = x + 1; i < size; i++) {
 			arr[i][y] = num++;
 			x = i;
 		}
-		show(arr);
 		size -= 1;
-		System.out.printf("%d, %d\n", x, y);
-		System.out.println("size : " + size);
-
-		System.out.println();
 
 		for (int j = y; j >= 0; j--) {
 			arr[x][j] = num++;
 			y = j;
 		}
-		show(arr);
 		for (int i = x - 1; i >= y + 1; i--) {
 			arr[i][y] = num++;
 			x = i;
 		}
-		show(arr);
 		size -= 1;
-		System.out.printf("%d, %d\n", x, y);
-		System.out.println("size : " + size);
-		
-		System.out.println();
 
 		for (int j = x; j <= size; j++) {
 			arr[x][j] = num++;
 			y = j;
 		}
 		
-		show(arr);
 		
 		for (int i = x+1; i<=size;i++) {
 			arr[i][y] = num++;
 			x = i;
 		}
-		size -= 1;
-		System.out.printf("%d, %d\n", x, y);
-		System.out.println("size : " + size);
-		show(arr);
 		
 		for (int j = y-1;j >= size -1; j--) {
 			arr[x][j] = num++;
 			y = j;
 		}
-		System.out.printf("%d, %d\n", x, y);
-		show(arr);
 		
 		for (int i = x -1; i >= size; i--) {
 			arr[i][y] = num++;
 			x = i;
 		}
 		size -= 1;
-		System.out.println("size : " + size);
-		System.out.printf("%d, %d\n", x, y);
-		show(arr);
 		
 		for (int j = y + 1; j <= size + 1; j++) {
 			arr[x][j] = num++;
