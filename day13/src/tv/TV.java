@@ -9,6 +9,11 @@ import java.text.SimpleDateFormat;
 // 속성은 필드
 // 기능(동사형)은 메서드로 나타냅니다.
 public class TV {
+	
+	private boolean hdmi1;
+	private boolean hdmi2;
+	private boolean usb;
+	
 	// 제조사
 	private String company;
 	// TV 상품명
@@ -62,10 +67,13 @@ public class TV {
         this.make_date = format.format(date);				// 제조일자
         this.isPower = false;															// 전원 꺼짐 여부
 		this.volume = 0;																	// 볼륨
-		this.priviousVolume = 0;												// 음소거할때 담을 이전 볼륨
+		this.priviousVolume = 0;													// 음소거할때 담을 이전 볼륨
 		this.channel = 0;																	// 채널
-		this.isMute = false;																// 음소거인지 아닌지 여부
+		this.isMute = false;															// 음소거인지 아닌지 여부
 		this.sort="예능 채널";															// 현재 채널이 속한 카테고리
+		this.hdmi1 = false;																// 
+		this.hdmi2 = false;																//
+		this.usb = false;																	//
 	}
 
 	// Tv On/Off
@@ -148,7 +156,7 @@ public class TV {
 			setSort("요리 채널");
 			break;
 		case 4:
-			setSort("스포츠 채널");
+			setSort("스포츠채널");
 			break;
 		case 5:
 			setSort("해외 채널");
@@ -160,7 +168,7 @@ public class TV {
 			setSort("종교 채널");
 			break;
 		case 8:
-			setSort("라디오 채널");
+			setSort("라디오채널");
 			break;
 		case 9:
 			setSort("음악 채널");
@@ -175,6 +183,19 @@ public class TV {
 		public void showCategory() {
 			System.out.println(channel+"번은 "+Category()+"입니다.");
 		}
+		
+		public void inject_removeHdmi1() {
+			setUsb(!hdmi1);
+		}
+		
+		public void inject_removeHdmi2() {
+			setUsb(!hdmi2);
+		}
+		
+		public void inject_removeUSB() {
+			setUsb(!usb);
+		}
+		
 	
 	// Lombok 마렵다.
 	
@@ -265,5 +286,30 @@ public class TV {
 	public void setMake_date(String make_date) {
 		this.make_date = make_date;
 	}
+
+	public boolean getIsHdmi1() {
+		return hdmi1;
+	}
+
+	public void setHdmi1(boolean hdmi1) {
+		this.hdmi1 = hdmi1;
+	}
+
+	public boolean getIsHdmi2() {
+		return hdmi2;
+	}
+
+	public void setHdmi2(boolean hdmi2) {
+		this.hdmi2 = hdmi2;
+	}
+
+	public boolean getIsUsb() {
+		return usb;
+	}
+
+	public void setUsb(boolean usb) {
+		this.usb = usb;
+	}
+	
 	
 }
