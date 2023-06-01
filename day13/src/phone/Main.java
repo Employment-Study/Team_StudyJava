@@ -2,9 +2,10 @@ package phone;
 
 public class Main {
 	public static void main(String[] args) {
-		Phone ph1 = new Phone("홍길동");
-		Phone ph2 = new Phone("장보고");
-		Phone ph3 = new Phone("임꺽정");
+		Phone ph1 = new Phone("홍길동","010-1234-4321");
+		Phone ph2 = new Phone("장보고","010-7777-7777");
+		Phone ph3 = new Phone("임꺽정","010-4321-1234");
+		
 		
 		ph1.turn();
 		ph2.turn();
@@ -21,7 +22,6 @@ public class Main {
 		ph2.send(ph1,"msg9");
 		ph2.send(ph1,"msg10");
 		ph2.send(ph1,"msg11");
-		
-		ph1.show_message(ph2);		// 
+		 
 	}
 }

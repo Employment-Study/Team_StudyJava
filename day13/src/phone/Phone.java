@@ -11,28 +11,45 @@ public class Phone {
 	private boolean power;			// 휴대폰 켜져 있는지
 	private ArrayList<String> messages;
 	private Scanner sc;
+	private String phoneNum;
 	
-	Phone(String name) {
+	Phone(String name,String phoneNum) {
 		this.power = false;
 		this.sc = new Scanner(System.in);
 		this.name = name;
+		this.phoneNum = phoneNum;
 		this.messages = new ArrayList<String>();
 		this.sendMsg="";
 		this.recievedMsg="";
 	}
 
-	public void menu() {
+	public void menu(Phone other) {
 		int menu = 1;
+		System.out.println();
 		
-		while(menu!=0) {
+		while(power && menu!=0) {
+			System.out.println("----------------------------");
+			System.out.println("1 : ~에게 문자 보내기\t 2:~에게서 온 문자 확인하기 \t 3 : ~에게 전화걸기 \t  4:전원 끄기\t 0:메뉴 닫기");
 			System.out.print("메뉴를 입력하세요 >> ");
 			menu = Integer.parseInt(sc.nextLine());
 			switch (menu) {
 			case 1:
+				System.out.print("메시지 내용을 입력하세요(엔터치면 바로 전송) : ");
+				this.send(other,sc.nextLine()); 
 				break;
-				
+			case 2:
+				this.show_message(other);
+				break;
+			case 3:
+				this.call(other);
+				break;
+			case 4:
+				this.turn();
+				break;
+			case 0:
+				break;
 			default:
-				break;
+				System.out.println("잘못 눌렀습니다.");
 			}
 		}
 		
@@ -55,10 +72,10 @@ public class Phone {
 	
 	// 문자 받기
 	public void recieve(Phone sender, String msg) {
-		if(power)
-			msg = msg;
+		if(power) {
 			this.setMessages(msg);
 			this.setRecievedMsg(msg);					// 받은 메시지
+		}
 	}	
 	
 	// 메시지 창 보기
@@ -66,7 +83,7 @@ public class Phone {
 		int count = 10;
 		
 		System.out.println("____________________________________________________________________");
-		System.out.println("\t\t\t\t"+other.getName()+"\t\t\t\t");
+		System.out.println("|\t\t\t\t"+other.getName()+"\t\t\t\t |");
 		for(String message : messages) {
 			if(message.split(" : ")[0].equals(other.getName())) {
 				System.out.printf("| %-50s \t\t | \n",message);
@@ -82,12 +99,20 @@ public class Phone {
 	}
 	
 	// 전화걸기
-	
-	// 통화 실패(전화기가 꺼져 있어...소리샘..)
-	
-	// 부재중
-	
-	// 통화 연결 성공
+	public void call(Phone other) {
+		System.out.println("________________________________________________________________________");
+		System.out.println("|\t\t\t\t 통화중 \t\t\t\t\t |");
+		System.out.println("|\t\t\t\t"+other.getName()+"\t\t\t\t\t |");
+		System.out.println("|\t\t\t  "+other.getPhoneNum()+"\t\t\t\t\t |");
+		System.out.println("|\t\t\t\t\t\t\t\t\t |");
+		System.out.println("|\t\t\t\t\t\t\t\t\t |");
+		System.out.println("|\t\t\t 통화 종료 : 1번 \t\t\t\t\t |");
+		System.out.println("|________________________________________________________________________|");
+		
+		if(Integer.parseInt(sc.nextLine())==1) {
+			return;
+		}
+	}
 	
 	public String getName() {
 		return name;
@@ -125,6 +150,12 @@ public class Phone {
 	public void setMessages(String msg) {
 		this.messages.add(msg);
 	}
-	
 
+	public String getPhoneNum() {
+		return phoneNum;
+	}
+
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
+	}
 }
