@@ -90,8 +90,8 @@ public class Handler {
 					System.out.println("삭제 실패!!");
 				}
 				break;
-			case 5:																						// 책의 제목을 입력하는데 이 키워드가 책제목의 일부분이라도 검색이 된다.
-				System.out.print("검색할 책의 제목을 입력하세요 >>  ");
+			case 5:																						// 책의 제목이나 작가를 입력하는데 이 키워드가 일부분이라도 검색이 된다.
+				System.out.print("검색할 내용을 입력하세요 >>  ");
 				keyword = sc.nextLine();
 				showBooks(searchBook(keyword));
 				break;
@@ -178,7 +178,7 @@ public class Handler {
 		int count = 0;									// 책의 배열 인덱스를 결정하는 count로 키워드가 있는 책의 갯수를 카운트한다.
 		Book[] result;									// 함수의 결과 리턴
 		for (int i = 0; i < books.length; i++) {	// 모든 책들을 검사해서 키워드가 포함된 제목의 책을 카운트한다.
-			if (books[i] != null && books[i].getTitle().contains(keyword)) {
+			if (books[i] != null && (books[i].getTitle().contains(keyword) || books[i].getAuthor().contains(keyword))) {
 				count++;
 			}
 		}
@@ -186,7 +186,7 @@ public class Handler {
 		result = new Book[count];					// 카운트한 크기의 Book 배열을 만들어서 result배열에 담는다.
 		int index = 0;												// 배열의 index는 0부터 시작
 		for (int i = 0; i < books.length; i++) {
-			if (books[i] != null && books[i].getTitle().contains(keyword)) {
+			if(books[i] != null && (books[i].getTitle().contains(keyword) || books[i].getAuthor().contains(keyword))) {
 				result[index++] = books[i];		// result[0]부터 book[i]를 담고 ; 이후 index+=1;
 			}
 		}
