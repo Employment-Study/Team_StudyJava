@@ -30,7 +30,9 @@ public class Starcraft{
 
 	public void startGame() {
 		if(isStart()) {
-			
+			if(player.getRace().equals("저그")) {
+				
+			}
 		}
 	}
 	

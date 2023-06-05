@@ -1,6 +1,8 @@
 package starcraft.units;
 
 public class Unit {
+	private String name;
+	private int people;	 // 인구수
 	private int hp;		 // 체력
 //	private int shield;	 // 프로토스 실드
 //	private int regeneration;		// 저그 체력 재생
@@ -14,7 +16,20 @@ public class Unit {
 	private boolean can_attack;		// 공격가능
 	private boolean can_digging;	// 일꾼?
 	private Damage_Type damage_type;	// 데미지 타입
+	private UnitType unitType;
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getPeople() {
+		return people;
+	}
+	public void setPeople(int people) {
+		this.people = people;
+	}
 	public int getHp() {
 		return hp;
 	}
@@ -80,6 +95,12 @@ public class Unit {
 	}
 	public void setDamage_type(Damage_Type damage_type) {
 		this.damage_type = damage_type;
+	}
+	public UnitType getUnitType() {
+		return unitType;
+	}
+	public void setUnitType(UnitType unitType) {
+		this.unitType = unitType;
 	}
 	
 	
