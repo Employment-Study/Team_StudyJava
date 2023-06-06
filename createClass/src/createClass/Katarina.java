@@ -25,7 +25,7 @@ public class Katarina extends Unit {
 		other.setHP(otherHP);
 	}
 
-	void E(Unit other) { // 인게임 궁
+	void E(Unit other) { // 인게임 궁, 계수 너프
 		double Edamage = 500 + this.getATK() * 1.85;
 		System.out.printf("%s가 E사용\n", this.getName());
 		System.out.printf("%s가 %s에게 가한 데미지 : %.2f\n", this.getName(), other.getName(), Edamage);

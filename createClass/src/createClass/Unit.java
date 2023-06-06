@@ -1,10 +1,10 @@
 package createClass;
 
-public class Unit {
-	private String name;
-	private double HP;
-	private double ATK;
-	private double DEF;
+public class Unit {	// 슈퍼클래스
+	private String name;	// 이름
+	private double HP;		// hp
+	private double ATK;		// 공격력
+	private double DEF;		// 방어력
 
 	public String getName() {
 		return name;
@@ -38,7 +38,7 @@ public class Unit {
 		DEF = dEF;
 	}
 
-	Unit(String name, double HP, double ATK, double DEF) {
+	Unit(String name, double HP, double ATK, double DEF) {	// 유닛 생성
 		this.name = name;
 		this.HP = HP;
 		this.ATK = ATK;
@@ -57,6 +57,6 @@ public class Unit {
 			damage *= -1;
 		}
 		this.HP -= damage;	// "내" HP가, 데미지만큼 빠진다
-		return damage;
+		return damage;	// 내가 받은 데미지 = 상대가 준 데미지이므로, 데미지를 리턴
 	}
 }
