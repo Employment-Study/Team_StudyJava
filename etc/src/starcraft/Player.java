@@ -20,6 +20,8 @@ public class Player {
 		this.color = color;
 		this.race = race;
 		this.name = name;
+		this.units = new ArrayList<Unit>();
+		this.buildings = new ArrayList<Building>();
 	}
 	
 	
@@ -54,41 +56,33 @@ public class Player {
 		this.name = name;
 	}
 
-
 	public int getWin() {
 		return win;
 	}
-
 
 	public void setWin(int win) {
 		this.win = win;
 	}
 
-
 	public int getLose() {
 		return lose;
 	}
-
 
 	public void setLose(int lose) {
 		this.lose = lose;
 	}
 
-
 	public static int getPeople() {
 		return people;
 	}
-
 
 	public static void setPeople(int people) {
 		Player.people = people;
 	}
 
-
 	public static int getPeople_max() {
 		return people_max;
 	}
-
 
 	public static void setPeople_max(int people_max) {
 		Player.people_max = people_max;
