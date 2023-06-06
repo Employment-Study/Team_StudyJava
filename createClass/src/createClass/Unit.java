@@ -5,7 +5,7 @@ public class Unit {
 	private double HP;
 	private double ATK;
 	private double DEF;
-	
+
 	public String getName() {
 		return name;
 	}
@@ -38,22 +38,25 @@ public class Unit {
 		DEF = dEF;
 	}
 
-	Unit(String name, double HP, double ATK, double DEF){
+	Unit(String name, double HP, double ATK, double DEF) {
 		this.name = name;
 		this.HP = HP;
 		this.ATK = ATK;
 		this.DEF = DEF;
 	}
-	
-	void Attack(Unit other) {
-		other.Defend(this);
-		System.out.printf("%s에게 입힌 데미지 : %d\n", other.name, this.ATK-other.DEF);
-		if(other.HP <= 0) {
-			System.out.println("적을 처치했습니다");
-		}
+
+	void Attack(Unit other) {	// "내"가 "상대"에게 "입히는" 데미지
+		double damage = other.Defend(this);	// 내가 상대에게 공격을 하면, 상대는 방어한다
+		System.out.printf("%s의 평타\n", this.name);
+		System.out.printf("%s가 %s에게 입힌 데미지 : %.2f\n", this.name, other.name, damage);
 	}
-	
-	void Defend(Unit other) {
-		this.HP = this.HP - (other.ATK - this.DEF);
+
+	double Defend(Unit other) {	// "내"가 "상대"에게 "받는" 데미지
+		double damage = other.ATK - this.DEF; // 상대의 공격력에서 내 방어력을 뺀 만큼이 데미지
+		if(damage <= 0) {
+			damage *= -1;
+		}
+		this.HP -= damage;	// "내" HP가, 데미지만큼 빠진다
+		return damage;
 	}
 }
