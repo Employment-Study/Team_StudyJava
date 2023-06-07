@@ -1,5 +1,6 @@
 package ch14_Stream;
 
+import java.nio.file.Path;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -28,16 +29,45 @@ public static void main(String[] args) {
 	System.out.println();
 	
 	// 한가지 주의할 점 : iterate()와 generate()에 의해 생성된 스트림을 아래와 같이 기본형 스트림 타입의 참조변수로 다룰 수 없다는 것
-//		IntStream evenStream2 = Stream.iterate(0, n->n+2);					//Err
-//		DoubleStream randomStream2 = Stream.generate(Math::random);			//Err
+	//	IntStream evenStream2 = Stream.iterate(0, n->n+2);					//Err
+	//	DoubleStream randomStream2 = Stream.generate(Math::random);			//Err
 	
 	//위 코드를 굳이 필요하다면 , mapToInt()와 같은 메서드로 변환을 해야 한다.
 	IntStream evenStream3 =  Stream.iterate(0, n->n+2).mapToInt(Integer::valueOf);
 	evenStream3.limit(5).forEach(System.out::print);
 	System.out.println();
-	Stream<Integer> stream = evenStream3.boxed();	//Intstream > Stream<integer>
 
 	
+	// Intstream타입 스트림을 Stream<Integer>타입으로 변환하려면, bxed()를 사용하면 된다.
+//	Stream<Integer> stream = evenStream3.boxed();	//Intstream > Stream<integer>
+//	stream.forEach(System.out::print);
+
+
+	//파일
+//	java.nio.file.files는 파일을 다루는데 필요한 메서드를 제공한다.
+//	list()는 지정된 디렉토리에 있는 파일의 목록을 소스로 하는 스트림을 생성해서 반환한다.
+	
+//	파일의 한 행을 요소로 하는 스트림을 생성하는 메서드도 있다.
+//	Stream<String> 	Files.lines(Path path)
+//	Stream<String>	Files.lines(Path path, Charset cs)
+//	Stream<String> lines()			//	buffredReader클래스
+	
+	
+	//빈스트림
+	
+	Stream emptyStream	= Stream.empty();  			//빈 스트림을 생성해서 반환
+	long count = emptyStream.count();				// 0
+	System.out.println(count);
+	
+	//두 스트림의 연결
+	
+	String[] str1 = {"123","456","789"};
+	String[] str2 = {"ABC", "DEF", "GHI"};
+	
+	Stream<String> str11 = Stream.of(str1);
+	Stream<String> str22 = Stream.of(str2);
+	Stream<String> str33 = Stream.concat(str11, str22);
+	str33.forEach(System.out::print);
 	
 	
 }

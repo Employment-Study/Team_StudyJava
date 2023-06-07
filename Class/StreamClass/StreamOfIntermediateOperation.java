@@ -55,7 +55,7 @@ public static void main(String[] args) {
 //	strStream.sorted(Comparator.<String>naturalOrder().reversed())
 	
 //	strStream.sorted(String.CASE_INTENSITIVE_ORDER) // 대소문자 구분안함
-//	strStream.sorted(String.CASE_INTESITIE_ORDER.reversed())	대소문자 구분안하고 역순
+//	strStream.sorted(String.CASE_INTESITIVE_ORDER.reversed())	대소문자 구분안하고 역순
 	
 //	strStream.sorted(Comparator.comparing(String::length))		//길이순 정렬
 //	strStream.sorted(Comparator.comparingInt(String::length))	//no오토박싱
