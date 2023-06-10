@@ -1,4 +1,4 @@
-package ch14;
+package ch14_Lamda;
 
 public class LambdaEx2 {
 	public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class LambdaEx2 {
 		System.out.println(((Object)(MyFunction)(()->{})).toString());
 	
 	/*
-	  ch14.LambdaEx2$$Lambda$1/531885035@6ce253f1
+	  ch14_Lamda.LambdaEx2$$Lambda$1/531885035@6ce253f1
 	  컴파일러가 람다식의 타입을 어떤 형식으로 만들어내는지 알 수있다.
 	  익명 객체라면 객체의 타입이 외부클래스의이름$번호 와 같은 형식이지만 
 	  람다식의 타입은 외부클래스이름$$Lambda$번호와 같은 형식으로 되어 있다.

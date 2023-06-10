@@ -1,4 +1,4 @@
-package ch14;
+package ch14_Lamda;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -28,6 +28,7 @@ public static void main(String[] args) {
 	(2) max()메서드와 람다식의 매개변수의 타입,개수, 반환값이 일치하기 때문
 	
 	그래서 인터페이스를 통해 람다식을 다루기로 결정되었다. 이를 함수형 인터페이스로 부르기로 했다.
+	**중요 !! 
 	단, 함수형 인터페이스는 오직 하나의 추상메서드만 정의되어 있어야 한다.
 	반면에 static 메서드와 default메서드의 개수는 제약이 없다.
 	
@@ -64,11 +65,16 @@ public static void main(String[] args) {
  	또는 참조변수 없이 아래와 같이 직접 람다식을 받는 것도 가능하다.
  	aMethod(() -> System.out.println("myMethod()"));	//람다식을 매개변수로 지정
  	
+ 	메서드의 반환 타입이 함수형 인터페이스타입이라면, 이 함수형 인터페이스의 추상 메서드와 동등한 람다식을 가리키는 참조변수를 반환하거나 람다식을 직접 반환할 수 있다.
  	
+ 	MyFunction myMethod() {
+ 		MyFunction f = () -> {};
+ 		return f;
  
   
   
 	}
+	
 	
 	*/
 }

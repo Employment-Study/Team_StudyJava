@@ -1,4 +1,4 @@
-package ch14;
+package ch14_Lamda;
 
 public class TypeCastLambda {
 /*
@@ -18,4 +18,6 @@ public class TypeCastLambda {
 //	굳이 형변환을 하겠다면 먼저 함수형 인터페이스로 변형해야 한다.
 	Object obj = (Object)(MyFunction)(()->{});
 	String str = ((Object)(MyFunction)(()->{})).toString();
+	
+	
 }

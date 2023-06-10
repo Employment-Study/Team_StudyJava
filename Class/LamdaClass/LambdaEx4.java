@@ -1,4 +1,4 @@
-package ch14;
+package ch14_Lamda;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,5 +28,6 @@ public static void main(String[] args) {
 	
 	//map의 모든 요소를 (k,v)의 형식으로 출력한다.
 	map.forEach((k,v) -> System.out.print("{"+k+","+v+"},"));
+	
 }
 }

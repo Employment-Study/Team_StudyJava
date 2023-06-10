@@ -1,4 +1,4 @@
-package ch14;
+package ch14_Lamda;
 
 import java.util.function.Function;
 import java.util.function.Predicate;

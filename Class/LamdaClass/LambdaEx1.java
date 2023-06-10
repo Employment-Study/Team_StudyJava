@@ -1,4 +1,4 @@
-package ch14;
+package ch14_Lamda;
 
 public class LambdaEx1 {
 	static void execute(MyFunction f) {//매개변수의 타입이 MyFunction인 메서드

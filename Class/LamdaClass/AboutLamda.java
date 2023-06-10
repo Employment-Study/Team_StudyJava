@@ -1,4 +1,4 @@
-package ch14;
+package ch14_Lamda;
 
 import java.util.Arrays;
 
@@ -12,13 +12,14 @@ public class AboutLamda {
 	public static void main(String[] args) {
 		
 		int[] arr = new int[5];
-		Arrays.setAll(arr,(i) -> (int)(Math.random()*5)+1);
+		Arrays.setAll(arr,(i) -> (int)(Math.random()*5)+1);		//Arrays.setAll(배열, 집어넣을 수);
 		
 /*	위의 식에서 람다식은 아래와 같이 표현된다.
 /
 	 int method() {
 	 return (int) (Math.random()*5)+1;
 	 }
+	 
 */
 		
 		
@@ -27,7 +28,7 @@ public class AboutLamda {
  	반환타입 메서드이름(매개변수 선언) {
  	문장들
  	}
- 	int max(int a, int b) {return a>b?a:b;
+ 	int max(int a, int b) {return a>b?a:b;}
  	
  	(1) 반환타입과 메서드 이름을 삭제한다.
  	(int a, int b) {return a>b?a:b;}
@@ -41,7 +42,7 @@ public class AboutLamda {
  	(4)람다식에 선언된 매개변수의 타입은 추론이 가능한 경우 생략 가능하다.
  	(a , b) -> a > b ? a : b
  	
- 	(5)선언된 매개변수가 하나뿐인 경우에는 괄호()를 생략할 수 있다. 단 매개변수 타입이 있으면 괄호()를 생략할 수 없다.
+ 	(5)선언된 매개변수가 하나뿐인 경우에는 괄호()를 생략할 수 있다. 단 매개변수 타입이 있으면 괄호()를 생략할 수 없다. 생략할 수 있는 경우는 추론이 가능할 때만 가능!
  	(a) -> a* a             =>             a - > a * a //OK
  	(int a) -> a * a		=>		   int a - >  a *a //Err
  
