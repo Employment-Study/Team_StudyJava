@@ -14,7 +14,7 @@ public class BuffredOutputStreamEx {
 			for(int i='1'; i<= '9'; i++) {
 				bos.write(i);
 			}
-			bos.close();
+			
 			bos.close();// close를 해주면 알아서flush한 후 close한다.
 //			따라서 기반스트림은 close할 필요없이 보조 스트림을close해주면된다.
 		}catch (IOException e) {

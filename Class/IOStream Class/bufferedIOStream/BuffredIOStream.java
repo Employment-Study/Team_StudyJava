@@ -5,7 +5,7 @@ public class BuffredIOStream {
 	public static void main(String[] args) {
 	
 //	BuffredI/OStream은 입출력 효율을 높이기 위해 버퍼를 사용하는 보조 스트림이다.
-//	한 바이트씩 입력받기 보다는 버퍼를 이요해서 한 번에 여러 바이트를 입출력하는 것이 빠르기 떄문에 대부분의 입출력 작업에 사용된다.
+//	한 바이트씩 입력받기 보다는 버퍼를 이용해서 한 번에 여러 바이트를 입출력하는 것이 빠르기 떄문에 대부분의 입출력 작업에 사용된다.
 		
 //	BufferedInputStream 생성자
 //	BufferedInputStream bi = new BufferedInputStream(in);	InputStream입력소스 in을 갖는 인스턴스 생성
