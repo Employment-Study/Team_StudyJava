@@ -8,18 +8,19 @@ class Solution {
     	 * 
     	 * 입출력 예
     	 * my_string : He11oWor1d, overwrite_string : lloWorl, s : 2, result : HelloWorld
-    	 * my_string : Program29b8UYP, overwrite_string : merS123, s : 7, ProgrammersS123
+    	 * my_string : Program29b8UYP, overwrite_string : merS123, s : 7, result : ProgrammerS123
     	 */
-        String answer = my_string;
-        int lastindex = overwrite_string.length();
+        String answer = "";
         
-        for(int i = 0; i < my_string; i++) {
-        	
+        for(int i = 0; i < my_string.length(); i++) {
+        	if(i >= s && i < overwrite_string.length()+s) {
+        		answer += overwrite_string.charAt(i-s);
+        	}
+        	else {
+        		answer += my_string.charAt(i);
+        	}
         }
         
-        for(int i = s; i <= lastindex; i++) {
-        	answer[i].replace
-        }
         return answer;
     }
 }
