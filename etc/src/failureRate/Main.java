@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-// 실패율
 class Solution {
 	public int[] solution(int N, int[] stages) {
 		int[] answer = new int[N];
