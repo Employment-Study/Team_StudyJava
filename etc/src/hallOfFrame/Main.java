@@ -8,26 +8,25 @@ class Solution {
 		int[] answer = new int[score.length];
 		ArrayList<Integer> frameList = new ArrayList<Integer>();
 		int index = 0;
-		while (frameList.size() <= k && index < score.length) {
-			
-			if (!frameList.isEmpty() && frameList.get(0) > score[index]) {
-				
-				answer[index] = frameList.get(0);
-				index++;
-				continue;
-			} else {	
+		while (frameList.size() <= k && index < score.length) {				
+			if(frameList.size() < k) {
 				frameList.add(score[index]);
-			}
-			System.out.println("frameList : "+frameList);
-			frameList.sort(null);
-			if (frameList.size() == k) {
+				frameList.sort(null);
 				answer[index] = frameList.get(0);
-			}else {
-				answer[index] = frameList.get(0);
+			}else{
+				if(frameList.get(0)>score[index]) {
+					answer[index] = frameList.get(0);
+					index++;
+					continue;
+				}else {
+					frameList.remove(0);
+					frameList.add(score[index]);
+					frameList.sort(null);
+					answer[index] = frameList.get(0);
+				}
 			}
 			index++;
 		} // end of while
-		System.out.println(Arrays.toString(answer));
 		return answer;
 	}
 }
