@@ -8,11 +8,11 @@ public class Ex09 {
 	// 순서대로 데이터를 처리하기 위해 사용하는 형식
 
 	private static ArrayList<String> list = new ArrayList<>();
-	
+	// 요소 추가
 	static void enqueue(String value) {
 		list.add(value);
 	}
-	
+	// 요소 제거
 	static String dequeue() {
 		if(list.size() == 0) {
 			return null;

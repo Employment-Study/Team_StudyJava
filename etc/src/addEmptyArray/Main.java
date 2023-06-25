@@ -3,6 +3,7 @@ package addEmptyArray;
 import java.util.Stack;
 // 빈 배열에 추가/삭제하기
 class Solution {
+	
 	public int[] solution(int[] arr, boolean[] flag) {
 		int[] answer = {};
 		Stack<Integer> arrStack = new Stack<Integer>();

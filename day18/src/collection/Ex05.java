@@ -5,8 +5,7 @@ import java.util.ArrayList;
 public class Ex05 {
 	public static void main(String[] args) {
 		ArrayList<String> list = new ArrayList<String>();
-		
-		
+
 		list.add("apple");
 		list.add("banana");
 		list.add("car");
@@ -15,6 +14,7 @@ public class Ex05 {
 		
 		System.out.println(list);
 		
+		// car라는 데이터가 리스트에 있다면 true를 아니면 false를 반환한다.
 		System.out.println("list.contains(\"car\") : " + list.contains("car"));
 		System.out.println("list.contains(\"carpet\") : "+list.contains("carpet"));
 		

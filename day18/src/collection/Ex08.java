@@ -14,7 +14,7 @@ public class Ex08 {
 		// 				index와 마찬가지로 key가 중복되는 경우는 없다.
 		// 				value는 중복이 가능하다.
 		// 				key를 이용하여 value에 접근할 수 있다.
-		//					value를 이용하여 역으로 key를 조회할 수는 없다.
+		//				value를 이용하여 역으로 key를 조회할 수는 없다.
 		
 		HashMap<String, String> map = new HashMap<>();
 		

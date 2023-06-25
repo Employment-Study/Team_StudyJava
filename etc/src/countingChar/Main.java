@@ -2,7 +2,7 @@ package countingChar;
 
 import java.util.Arrays;
 import java.util.HashMap;
-
+// 문자 갯수 세기
 class Solution {
 	public int[] solution(String my_string) {
 		int[] answer = new int[52];	// 총 알파벳 갯수 26 x 2

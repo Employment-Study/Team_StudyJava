@@ -37,7 +37,7 @@ public class Ex10 {
 			return bCnt - aCnt;
 		});
 		
-		list2.forEach(s -> System.out.printf("%s씨는 %s명입니다.\n", s.split(":")[0], s.split(":")[1]));
+//		list2.forEach(s -> System.out.printf("%s씨는 %s명입니다.\n", s.split(":")[0], s.split(":")[1]));
 		
 		int total  = 0;
 		for(String s : list2) {

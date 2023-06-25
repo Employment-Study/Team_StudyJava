@@ -1,7 +1,7 @@
 package collection;
 
 import java.util.ArrayList;
-
+// 부모클래스 : 학생
 abstract class Student {
 	private String name;
 	private int kor, eng, mat;
@@ -66,7 +66,7 @@ abstract class Student {
 	}
 
 }
-
+// 인문학 학생
 class Literalstudent extends Student{
 	private int literature;
 	
@@ -86,7 +86,7 @@ class Literalstudent extends Student{
 	
 }
 
-
+// 컴공과 학생
 class ComputerScienceStudent extends Student {
 	private int c, java;
 
@@ -141,7 +141,7 @@ public class Ex04 {
 		
 		for(int i=0;i<list.size();i++) {
 			Object o = list.get(i);
-			Student st = (Student) o;
+			Student st = (Student) o;			// 다운 캐스팅을 해줘야 내부 함수를 사용가능하다
 			System.out.printf("%s : %.2f\n", st.getName(), st.getAvg());
 		}
 	}

@@ -1,8 +1,7 @@
 package threeSeparator;
 
-
 import java.util.ArrayList;
-
+// 세개의 구분자
 class Solution {
 	public String[] solution(String myStr) {
 		String[] answer = {};	
