@@ -2,8 +2,6 @@ package mockExam;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 
 // 모의고사
 class Solution {
@@ -13,7 +11,7 @@ class Solution {
 		int[] first = { 1, 2, 3, 4, 5 };
 		int[] second = { 2, 1, 2, 3, 2, 4, 2, 5 };
 		int[] third = { 3, 3, 1, 1, 2, 2, 4, 4, 5, 5 };
-		int max = Integer.MIN_VALUE;
+		int max = 0;
 		int n = answers.length;
 		int count = 0;
 		for (int i = 0; i < answers.length; i++) {
@@ -25,11 +23,21 @@ class Solution {
 				matches[2]++;
 		}
 		
+		
+		max = Math.max(matches[0], Math.max(matches[1],matches[2]));
+		
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
 		for(int i=0;i<matches.length;i++) {
-			
+			if(matches[i] == max) {
+				list.add(i+1);
+			}
+		}
+		answer = new int[list.size()];
+		for(int i=0;i<list.size();i++) {
+			answer[i] = list.get(i); 
 		}
 
-		System.out.println(Arrays.toString(answer));
 		return answer;
 	}
 }
@@ -40,7 +48,7 @@ public class Main {
 		int[] arr1 = { 1, 2, 3, 4, 5 }; // 정답 배열 5지선다 값은 5까지
 		int[] arr2 = { 1, 3, 2, 4, 2 };
 		int[] arr3 = { 4, 3, 1, 2, 3 };
-		s.solution(arr3);
-		System.out.println();
+		
+		System.out.println(Arrays.toString(s.solution(arr2)));
 	}
 }
