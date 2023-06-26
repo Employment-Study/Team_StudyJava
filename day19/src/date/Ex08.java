@@ -2,6 +2,7 @@ package date;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Period;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -14,19 +15,24 @@ public class Ex08 {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
 		System.out.print("기간1 시작일 : ");
-		Date priod1Begin = sdf.parse(sc.nextLine());
+		Date period1Begin = sdf.parse(sc.nextLine());
 		
 		System.out.print("기간2 종료일 : ");
-		Date priod1End = sdf.parse(sc.nextLine());
+		Date period1End = sdf.parse(sc.nextLine());
 		
 		System.out.print("기간1 시작일 : ");
-		Date priod2Begin = sdf.parse(sc.nextLine());
+		Date period2Begin = sdf.parse(sc.nextLine());
 		
 		System.out.print("기간2 종료일 : ");
-		Date priod2End = sdf.parse(sc.nextLine());
+		Date period2End = sdf.parse(sc.nextLine());
 		
-		boolean flag1 = priod2Begin.getTime() <= priod1End.getTime(); 
-		System.out.println(flag1 ? "겹침" : "겹치치 않음");
+		
+		Date beforeBegin = period1Begin.getTime() > period2Begin.getTime() ? period2Begin : period1Begin;
+		Date afterBegin = period1Begin.getTime() < period2Begin.getTime() ? period2Begin : period1Begin;
+		
+		
+		 
+//		System.out.println(flag1 ? "겹침" : "겹치치 않음");
 		
 		
 		sc.close();
