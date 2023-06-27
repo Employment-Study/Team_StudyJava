@@ -25,7 +25,7 @@ public class Server {
 	
 	public static void main(String[] args) throws Exception {
 		String localAddr = getLocalIpaddr();
-		Scanner sc = null;
+		
 		String data="";
 		System.out.println(localAddr);
 		// 서버 소켓을 힙에 띄운다.
@@ -37,18 +37,14 @@ public class Server {
 		// 원격지 주소를 가져온다.
 		String remoteAddr = so.getInetAddress().toString();
 		System.out.println(remoteAddr + " 에서 접속함");
-
-		while(true) {	
-			System.out.println("test");
-			sc = new Scanner(so.getInputStream());	// 소켓의 입력 스트림을 가져와서 Scanner;
+		Scanner sc = new Scanner(so.getInputStream());
+		
+		while(!data.equals("exit")) {	
 			data = sc.nextLine();
 			System.out.println(remoteAddr + " : " + data);
-			if(data.equals("exit")) {
-				sc.close();
-				break;
-			}
 		}
-
+		
+		sc.close();
 		so.close();	// Socket 닫기
 		ss.close();	// Service Socket 닫기
 		
