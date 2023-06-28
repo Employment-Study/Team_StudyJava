@@ -24,6 +24,7 @@ section에서 같은 원소가 두 번 이상 나타나지 않습니다.
 section의 원소는 오름차순으로 정렬되어 있습니다.
 
  */
+// 덧칠하기
 class Solution {
 	public int solution(int n, int m, int[] section) { // 2 3 6 [m = 4] max = 6
 		int answer = 0;
