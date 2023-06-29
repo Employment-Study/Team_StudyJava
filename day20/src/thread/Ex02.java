@@ -22,9 +22,9 @@ public class Ex02 {
 //		ob.start();	// runnable을 상속받으면 start를 바로 쓸 수 없다.(메서드가 없음) 
 //		
 		Jobc ob = new Jobc();
-//																			// Thread
+//										// Thread
 //		Thread th = new Thread(ob);		// runnable을 생성자 매개변수에 전달
-//		th.start();												// runnable을 참조하는 thread의 start호출
+//		th.start();						// runnable을 참조하는 thread의 start호출
 	
 		for(int i=1;i<=25;i++) {
 			System.out.print(i + " ");
