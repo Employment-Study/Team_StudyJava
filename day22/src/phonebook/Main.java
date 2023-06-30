@@ -60,6 +60,7 @@ public class Main {
 				System.out.print("수정할 사람의 이름을 정확하게 입력하세요 :");
 				name = sc.nextLine();
 				if (dao.isIn(name)) { // 존재하는지의 여부
+					System.out.print(dao.select(name));
 					System.out.print("정말 수정하시겠습니까?? (y/n) :");
 					String test = sc.nextLine();
 					if (test.charAt(0) == 'y' || test.charAt(0) == 'Y') {

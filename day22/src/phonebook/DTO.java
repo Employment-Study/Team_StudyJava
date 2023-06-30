@@ -1,6 +1,7 @@
 package phonebook;
 
 /*
+    IDX		NUMBER
  	NAME    VARCHAR2(100) 
 	AGE     NUMBER        
 	PNUM    VARCHAR2(20)  
@@ -12,6 +13,7 @@ public class DTO {
 	
 	// 하나의 객체가 이런 구성으로 되어있다.
 	// 테이블의 컬럼과 자료형을 클래스의 필드로 구성하는 객체이다.
+	private int idx;
 	private String name;
 	private int age;
 	private String pnum;
@@ -48,14 +50,25 @@ public class DTO {
 		this.pnum = pnum;
 	}
 	
+	
+	public int getIdx() {
+		return idx;
+	}
+
+
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
+
+
 	@Override
 	public String toString() {
 		String s = "";
+		s += getIdx()+") \t";
 		s += getName() +"\t";
 		s += getAge() +"\t";
 		s += getPnum() +"\n";
 		return s;
 	}
-	
 	
 }

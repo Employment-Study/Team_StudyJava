@@ -62,6 +62,7 @@ public class DAO { // Data Access Object : DB의 데이터에 접근하기 위�
 	// Phone형태의 데이터를 mapping하는 함수
 	private DTO mapper(ResultSet rs) throws SQLException {
 		DTO dto  = new DTO();
+		dto.setIdx(rs.getInt("idx"));
 		dto.setName(rs.getString("name"));
 		dto.setAge(rs.getInt("age"));
 		dto.setPnum(rs.getString("pnum"));
@@ -71,7 +72,7 @@ public class DAO { // Data Access Object : DB의 데이터에 접근하기 위�
 	// 전체 목록()
 	public ArrayList<DTO> selectAll() {
 		ArrayList<DTO> list = new ArrayList<>();
-		String sql = "select * from phonebook order by name";
+		String sql = "select * from phonebook order by idx";
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
@@ -114,7 +115,7 @@ public class DAO { // Data Access Object : DB의 데이터에 접근하기 위�
 	public ArrayList<DTO> search(String name) {
 		ArrayList<DTO> list = new ArrayList<>();
 //		String sql = "select * from phonebook  where name = \'"+name+"\' order by name";
-		String sql = "select * from phonebook  where name like '%' || ? || '%' order by name";
+		String sql = "select * from phonebook  where name like '%' || ? || '%' order by idx";
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
@@ -139,7 +140,7 @@ public class DAO { // Data Access Object : DB의 데이터에 접근하기 위�
 	// 추가 (DTO)
 	public int insert(DTO dto) {
 		int row= 0;
-		String sql = "insert into phonebook values(?, ?, ?)";
+		String sql = "insert into phonebook(name,age,pnum) values(?, ?, ?)";
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
