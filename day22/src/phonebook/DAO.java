@@ -46,29 +46,29 @@ public class DAO { // Data Access Object : DB의 데이터에 접근하기 위�
 		} catch (Exception e) {
 		}
 		try {
-			if(pstmt!=null) {
+			if (pstmt != null) {
 				pstmt.close();
 			}
-		}catch(Exception e) {
+		} catch (Exception e) {
 		}
 		try {
 			if (conn != null)
 				conn.close();
 		} catch (Exception e) {
 		}
-		
+
 	}
-	
+
 	// Phone형태의 데이터를 mapping하는 함수
 	private DTO mapper(ResultSet rs) throws SQLException {
-		DTO dto  = new DTO();
+		DTO dto = new DTO();
 		dto.setIdx(rs.getInt("idx"));
 		dto.setName(rs.getString("name"));
 		dto.setAge(rs.getInt("age"));
 		dto.setPnum(rs.getString("pnum"));
 		return dto;
 	}
-	
+
 	// 전체 목록()
 	public ArrayList<DTO> selectAll() {
 		ArrayList<DTO> list = new ArrayList<>();
@@ -77,18 +77,18 @@ public class DAO { // Data Access Object : DB의 데이터에 접근하기 위�
 			conn = getConnection();
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				list.add(mapper(rs));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
-		}		
+		}
 		return list;
 	}
-	
+
 	// 단일 조회(String name)
 	public DTO select(String name) {
 //		String sql = "select * from phonebook  where name = \'"+name+"\' order by name";
@@ -100,17 +100,18 @@ public class DAO { // Data Access Object : DB의 데이터에 접근하기 위�
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, name);
 			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
+
+			if (rs.next()) {
 				dto = mapper(rs);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
-		}		
+		}
 		return dto;
-	}	
+	}
+
 	// 검색 (String name)
 	public ArrayList<DTO> search(String name) {
 		ArrayList<DTO> list = new ArrayList<>();
@@ -122,8 +123,8 @@ public class DAO { // Data Access Object : DB의 데이터에 접근하기 위�
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, name);
 			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 //				DTO dto = new DTO();
 //				dto.setName(rs.getString("name"));
 //				dto.setAge(rs.getInt("age"));
@@ -132,14 +133,15 @@ public class DAO { // Data Access Object : DB의 데이터에 접근하기 위�
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
-		}		
+		}
 		return list;
 	}
+
 	// 추가 (DTO)
 	public int insert(DTO dto) {
-		int row= 0;
+		int row = 0;
 		String sql = "insert into phonebook(name,age,pnum) values(?, ?, ?)";
 		try {
 			conn = getConnection();
@@ -151,15 +153,16 @@ public class DAO { // Data Access Object : DB의 데이터에 접근하기 위�
 			row = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
-		}		
+		}
 		return row;
-	
+
 	}
+
 	// 수정 (DTO)
-	public int update(DTO dto,String name) {
-		int row= 0;
+	public int update(DTO dto, String name) {
+		int row = 0;
 		String sql = "update phonebook set name=?,age= ?, pnum=? where name = ?";
 //		String sql2 = "update phonebook set name = '%s', age = %s, pnum = '%s' where name='%s'";
 		try {
@@ -169,32 +172,34 @@ public class DAO { // Data Access Object : DB의 데이터에 접근하기 위�
 			pstmt.setString(1, dto.getName());
 			pstmt.setInt(2, dto.getAge());
 			pstmt.setString(3, dto.getPnum());
-			pstmt.setString(4,name);
+			pstmt.setString(4, name);
 			row = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
-		}		
+		}
 		return row;
 	}
+
 	// 삭제 (String name)
 	public int delete(String name) {
-		int row= 0;
+		int row = 0;
 		String sql = "delete from phonebook where name = ?";
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,name);
+			pstmt.setString(1, name);
 			row = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
-		}		
+		}
 		return row;
 	}
+
 	// 이름으로 존재여부 확인
 	public boolean isIn(String name) {
 		boolean flag = false;
@@ -205,18 +210,18 @@ public class DAO { // Data Access Object : DB의 데이터에 접근하기 위�
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, name);
 			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				flag = true;
 				break;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
 		}
-		
+
 		return flag;
 	}
-	
+
 }
