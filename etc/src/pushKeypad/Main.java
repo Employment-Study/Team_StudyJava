@@ -22,20 +22,23 @@ class Solution {
 				r_location.push(locations[numbers[i]]);
 				sb.append("R");
 			}else {
-				int r = Math.abs(locations[numbers[i]][0]-r_location.peek()[0])+
-						Math.abs(locations[numbers[i]][1]-r_location.peek()[1]);
-				int l = Math.abs(locations[numbers[i]][0]-l_location.peek()[0])+
-						Math.abs(locations[numbers[i]][1]-l_location.peek()[1]);
+				int rightx = Math.abs(locations[numbers[i]][0]-r_location.peek()[0]);
+				int righty = Math.abs(locations[numbers[i]][1]-r_location.peek()[1]);
+						
+				int leftx = Math.abs(locations[numbers[i]][0]-l_location.peek()[0]);
+				int lefty = Math.abs(locations[numbers[i]][1]-l_location.peek()[1]);
+			
+				int r = rightx+righty;
+				int l = leftx+lefty;
+				
 				if(r < l) {
 					r_location.push(locations[numbers[i]]);
 					sb.append("R");
 				}else if(l < r) {
 					l_location.push(locations[numbers[i]]);
 					sb.append("L");
-				}else {
-					System.out.println(l);
-					System.out.println(r);					
-					if(hand=="left") {
+				}else if(l == r){				
+					if(hand.equals("left")) {
 						System.out.println(numbers[i]);
 						l_location.push(locations[numbers[i]]);
 						sb.append("L");
@@ -56,7 +59,7 @@ class Solution {
 
 public class Main {
 	public static void main(String[] args) {
-		int[] numbers = { 1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5 };
+		int[] numbers = { 0,0 };
 		String hand = "right"; // 오른손잡이
 
 		Solution s = new Solution();
