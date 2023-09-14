@@ -26,7 +26,7 @@ class Solution {
         	}
         }
 
-        // 신고받은 횟수 
+        // 신고받은 횟수  
         for(String s : id_list) {
         	if(!(reportMap.get(s)==null)) {
         		String[] arr = reportMap.get(s).split(" ");
